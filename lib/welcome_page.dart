@@ -36,6 +36,31 @@ class WelcomePage extends StatelessWidget {
             ),
             SizedBox(height: 70),
             Container(
+              width: w,
+              margin: const EdgeInsets.only(left: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                      "Bienvenue",
+                      style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black54,
+                      )
+                  ),
+                  Text(
+                      "mail@.com",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.blueGrey,
+                      )
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 200,),
+            Container(
               width: w*0.8,
               height: h*0.08,
               decoration: BoxDecoration(
