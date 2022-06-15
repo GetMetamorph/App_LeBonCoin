@@ -17,10 +17,21 @@ class SignUpPage extends StatelessWidget {
               decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage(
-                          "img/signupimg.png"
+                          "img/signup.png"
                       ),
                       fit: BoxFit.cover
                   )
+              ),
+              child: Column(
+                children: [
+                  SizedBox(height: h*0.16,),
+                  CircleAvatar(
+                    backgroundColor: Colors.white70,
+                    radius: 50,
+                    backgroundImage: AssetImage(""
+                        "img/profile.png"),
+                  )
+                ],
               ),
             ),
             Container(
@@ -29,22 +40,7 @@ class SignUpPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 30),
-                  Text(
-                    "Bonjour",
-                    style: TextStyle(
-                        fontSize: 60,
-                        fontWeight: FontWeight.bold
-                    ),
-                  ),
-                  Text(
-                    "Connectez vous à votre compte",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.blueGrey
-                    ),
-                  ),
-                  SizedBox(height: 50),
+                  SizedBox(height: 100),
                   Container(
                     decoration: BoxDecoration(
                         color:Colors.white,
@@ -60,6 +56,8 @@ class SignUpPage extends StatelessWidget {
                     ),
                     child: TextField(
                       decoration: InputDecoration(
+                        hintText: "Email",
+                          prefixIcon: Icon(Icons.email, color: Colors.redAccent,),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
                               borderSide: BorderSide(
@@ -96,6 +94,8 @@ class SignUpPage extends StatelessWidget {
                     ),
                     child: TextField(
                       decoration: InputDecoration(
+                          hintText: "Mot de passe",
+                          prefixIcon: Icon(Icons.lock, color: Colors.redAccent,),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
                               borderSide: BorderSide(
@@ -117,7 +117,7 @@ class SignUpPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 20),
-                  Row(
+                  /*Row(
                     children: [
                       Expanded(child: Container()),
                       Text(
@@ -128,7 +128,7 @@ class SignUpPage extends StatelessWidget {
                         ),
                       ),
                     ],
-                  ),
+                  ),*/
                 ],
               ),
             ),
@@ -147,7 +147,7 @@ class SignUpPage extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  "Se connecter",
+                  "S\'inscrire",
                   style: TextStyle(
                       fontSize: 36,
                       fontWeight: FontWeight.bold,
@@ -156,25 +156,6 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: h*0.08),
-            RichText(text: TextSpan(
-                text: "Pas de compte ?",
-                style: TextStyle(
-                    color: Colors.grey[500],
-                    fontSize: 20
-                ),
-                children: [
-                  TextSpan(
-                      text: " S\'inscrire",
-                      style: TextStyle(
-                          color: Colors.black87,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold
-                      )
-                  )
-                ]
-            )
-            )
           ],
         )
     );
