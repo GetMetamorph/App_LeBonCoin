@@ -128,18 +128,6 @@ class SignUpPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 20),
-                    /*Row(
-                      children: [
-                        Expanded(child: Container()),
-                        Text(
-                          "Mot de passe oublié ?",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.blueGrey
-                          ),
-                        ),
-                      ],
-                    ),*/
                   ],
                 ),
               ),
@@ -174,13 +162,22 @@ class SignUpPage extends StatelessWidget {
               ),
               SizedBox(height: 10,),
               RichText(text: TextSpan(
-                recognizer: TapGestureRecognizer()..onTap=()=>Get.back(),
                 text: "Déjà un compte ?",
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.blueGrey
                 )
 
+              )),
+              SizedBox(height: 10,),
+              RichText(text: TextSpan(
+                  recognizer: TapGestureRecognizer()..onTap=()=>Get.back(),
+                  text: "Se connecter",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.black
+                  )
               ))
             ],
           ),
