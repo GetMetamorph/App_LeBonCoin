@@ -3,7 +3,14 @@ import 'package:untitled/login_page.dart';
 import 'package:untitled/signup_page.dart';
 import 'package:untitled/welcome_page.dart';
 import 'package:get/get.dart';
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
