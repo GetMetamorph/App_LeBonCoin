@@ -1,8 +1,12 @@
-  import 'package:flutter/gestures.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:untitled/auth_controller.dart';
 import 'package:untitled/signup_page.dart';
+
+var emailController = TextEditingController();
+var passwordController = TextEditingController();
 
 class LoginPage extends StatefulWidget{
   const LoginPage({Key? key}) : super(key: key);
@@ -68,6 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                       ]
                     ),
                     child: TextField(
+                      controller: emailController,
                       decoration: InputDecoration(
                           hintText: "Email",
                           prefixIcon: Icon(Icons.email, color: Colors.redAccent,),
@@ -106,8 +111,10 @@ class _LoginPageState extends State<LoginPage> {
                         ]
                     ),
                     child: TextField(
+                      controller: passwordController,
+                      obscureText: true,
                       decoration: InputDecoration(
-                          hintText: "Password",
+                          hintText: "Mot de passe",
                           prefixIcon: Icon(Icons.lock, color: Colors.redAccent,),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
@@ -146,25 +153,30 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             SizedBox(height: 70),
-            Container(
-              width: w*0.7,
-              height: h*0.08,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                  image: const DecorationImage(
-                      image: AssetImage(
-                          "img/loginbtn.png"
-                      ),
-                      fit: BoxFit.cover
-                  )
-              ),
-              child: Center(
-                child: Text(
-                  "Se connecter",
-                  style: TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white
+            GestureDetector(
+              onTap: (){
+                AuthController.instance.login(emailController.text.trim(), passwordController.text.trim());
+              },
+              child: Container(
+                width: w*0.7,
+                height: h*0.08,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    image: const DecorationImage(
+                        image: AssetImage(
+                            "img/loginbtn.png"
+                        ),
+                        fit: BoxFit.cover
+                    )
+                ),
+                child: Center(
+                  child: Text(
+                    "Se connecter",
+                    style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                    ),
                   ),
                 ),
               ),

@@ -1,9 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/auth_controller.dart';
+
+var emailController = TextEditingController();
+var passwordController = TextEditingController();
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +63,7 @@ class SignUpPage extends StatelessWidget {
                           ]
                       ),
                       child: TextField(
+                        controller: emailController,
                         decoration: InputDecoration(
                           hintText: "Email",
                             prefixIcon: Icon(Icons.email, color: Colors.redAccent,),
@@ -96,6 +102,8 @@ class SignUpPage extends StatelessWidget {
                           ]
                       ),
                       child: TextField(
+                        controller: passwordController,
+                        obscureText: true,
                         decoration: InputDecoration(
                             hintText: "Mot de passe",
                             prefixIcon: Icon(Icons.lock, color: Colors.redAccent,),
@@ -136,25 +144,30 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 70),
-              Container(
-                width: w*0.7,
-                height: h*0.08,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    image: const DecorationImage(
-                        image: AssetImage(
-                            "img/loginbtn.png"
-                        ),
-                        fit: BoxFit.cover
-                    )
-                ),
-                child: Center(
-                  child: Text(
-                    "S\'inscrire",
-                    style: TextStyle(
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white
+              GestureDetector(
+                onTap: (){
+                  AuthController.instance.register(emailController.text.trim(), passwordController.text.trim());
+                },
+                child: Container(
+                  width: w*0.7,
+                  height: h*0.08,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      image: const DecorationImage(
+                          image: AssetImage(
+                              "img/loginbtn.png"
+                          ),
+                          fit: BoxFit.cover
+                      )
+                  ),
+                  child: Center(
+                    child: Text(
+                      "S\'inscrire",
+                      style: TextStyle(
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white
+                      ),
                     ),
                   ),
                 ),
